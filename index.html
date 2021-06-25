@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Docker</title>
+</head>
+<style>
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 360px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color:coral;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+</style>
+    
+<script src="feature.js">
+    
+</script>
+
+<body style="background-color:blue;">
+
+    <h1 style="position: absolute; top: 1px; left: 390px; font-size: 60px;font-family: 'Courier New', Courier, monospace;">Docker Web Application</h1>
+
+    <!-- Create container Box -->
+    <div style="position: absolute; left: 10px; top: 110px;" class="flip-card">
+	    <div class="filp-card-inner">
+		<div class="flip-card-front">
+            <h1>Launch Container</h1>
+	    <p style="font-size: 23px"><center>Your image name</center></p><center><input id="c_i_name"></center>
+	    <p style="font-size: 23px"><center>Container name</center></p>><center><input id="c_c_name"></center>
+            <br><br>
+	    <center> <button onclick="create();" style="border: red;height: 30px;font-size: 23px;width: 150px;font-weight: bolder;background-color: darkgrey;text-align: center; ">Create</button><center>
+      </div>
+      </div>
+      </div>
+      <!-- Delete container Box -->
+    <div style="position: absolute; left: 400px; top: 110px;" class="flip-card">
+        <div class="filp-card-inner">
+          <div class="flip-card-front">
+            <h1>Delete Container</h1>
+	    <p style="font-size: 23px"><center>Container name</center></p><center><input id="d_c_name"></center>
+            <br><br>
+	    <center><button onclick="del();" style="border: red;height: 30px;font-size: 23px;width: 150px;font-weight: bolder;background-color: darkgrey;text-align: center; ">Delete</button></center>
+          </div>
+          </div>
+          </div>
+
+    
+      <!-- List containers Box -->
+      <div style="position: absolute; left: 800px; top: 110px;" class="flip-card">
+        <div class="filp-card-inner">
+		<div class="flip-card-front">
+            <h1>List all Container</h1>
+	    <p style="font-size: 23px"><center>This would list all the containers(running & stoped)</center></p>
+            <br><br>
+	    <center><button onclick="list();" style="border: red;height: 30px;font-size: 23px;width: 150px;font-weight: bolder;background-color: darkgrey;text-align: center; ">List</button></center>
+	    </div>
+        </div>
+      </div>
+
+
+    <!-- Pull container Box -->
+    <div style="position: absolute; right: 10px; top: 110px;" class="flip-card">
+        
+        <div class="filp-card-inner">
+          <div class="flip-card-front">
+            <h1>Pulling Image</h1>
+	    <p style="font-size: 23px"><center>Your image name</center></p><center><input id="p_i_name"></center>
+            <br><br><br><br>
+	    <center><button onclick="image();" style="border: red;height: 30px;font-size: 23px;width: 150px;font-weight: bolder;background-color: darkgrey;text-align: center; ">Create</button></center>
+          </div>
+        </div>
+      </div>
+
+    <!-- OutPut Box --> 
+      <div style="position: absolute; right: 600px; top: 490px;background-color:lightgrey;border: black solid 3px; width: 950px;right: 340px;" class="flip-card">
+      	<h1 style="position: absolute; align-content: center; left: 290px;">Output Display Here</h1>
+       	<pre>
+              <div id="op" style="border: red;font-size: 22px;font-weight: bolder;text-align: center;position: relative; top: 130px";></div>
+              <div id="im" style="border: red;font-size: 22px;font-weight: bolder;position: relative; top: 130px";></div>
+      	</pre>
+
+      	<br>
+      	<br>
+      </div>
+</body>
+
+</html>
